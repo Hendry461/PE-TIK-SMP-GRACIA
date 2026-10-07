@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> PE TIK SMP GRACIA </title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #4F46E5;
+            --secondary: #06B6D4;
+            --accent: #F59E0B;
+            --dark: #1E293B;
+            --light: #F8FAFC;
+            --white: #FFFFFF;
+            --correct: #10B981;
+            --wrong: #EF4444;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1100px;
+            margin: 2rem auto;
+            padding: 0 2rem;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 2rem;
+            font-size: 1.8rem;
+            color: var(--primary);
+        }
+
+        /* Student Identity Form */
+        .identity-card {
+            background: var(--white);
+            padding: 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 10px 15px -3px rgba(0,0,0,0.05);
+            margin-bottom: 2rem;
+        }
+
+        .form-group {
+            margin-bottom: 1rem;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--dark);
+        }
+
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #CBD5E1;
+            border-radius: 8px;
+            font-size: 1rem;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        .form-group input:focus, .form-group select:focus {
+            border-color: var(--primary);
+        }
+
+        /* Quiz Section */
+        .PE-section {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 10px 15px -3px rgba(0,0,0,0.05);
+        }
+
+        /* Menambahkan jarak ekstra dan padding antar nomor soal */
+        .PE-item {
+            margin-bottom: 2.5rem;
+            padding-bottom: 2rem;
+            border-bottom: 2px solid #E2E8F0;
+        }
+
+        .PE-item:last-child {
+            margin-bottom: 1.5rem;
+            border-bottom: none;
+        }
+
+        .PE-item p {
+            font-weight: 600;
+            margin-bottom: 1rem;
+            font-size: 1.05rem;
+        }
+
+        .options {
+            display: grid;
+            gap: 0.75rem;
+        }
+
+        .option-btn {
+            background: #F1F5F9;
+            border: 1px solid #CBD5E1;
+            padding: 0.85rem 1.2rem;
+            border-radius: 8px;
+            text-align: left;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-size: 0.95rem;
+        }
+
+        .option-btn:hover {
+            background: #E2E8F0;
+        }
+
+        .option-btn.correct {
+            background-color: var(--correct) !important;
+            color: white;
+            border-color: var(--correct);
+        }
+
+        .option-btn.wrong {
+            background-color: var(--wrong) !important;
+            color: white;
+            border-color: var(--wrong);
+        }
+
+        .score-container {
+            text-align: center;
+            margin-top: 2rem;
+            padding: 1.5rem;
+            background: #F1F5F9;
+            border-radius: 8px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            background: var(--dark);
+            color: var(--white);
+            margin-top: 4rem;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2 id="quiz" class="section-title">PE TIK SMP GRACIA (10 Soal)</h2>
+
+        <!-- Form Identitas Siswa -->
+        <div class="identity-card">
+            <h3>Identitas Siswa</h3>
+            <hr style="margin-bottom: 1rem; border: 0; border-top: 1px solid #E2E8F0;">
+            
+            <div class="form-group">
+                <label for="namaSiswa">Nama:</label>
+                <input type="text" id="namaSiswa" placeholder="Masukkan Nama ..." required>
+            </div>
+
+            <div class="form-group">
+                <label for="kelasSiswa">Kelas:</label>
+                <select id="kelasSiswa" required>
+                    <option value="">-- Pilih Kelas --</option>
+                    <option value="VII">VII</option>
+                    <option value="VIII">VIII</option>
+                    <option value="IX">IX</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- PE Section -->
+        <div class="PE-section">
+            <form id="PEForm">
+                
+                <!-- Soal 1 -->
+                <div class="PE-item">
+                    <p>1. Perangkat keras komputer yang berfungsi sebagai otak utama untuk memproses instruksi adalah...</p>
+                    <div class="options">
+                        <button type="button" class="option-btn" onclick="checkAnswer(this, 'A', 'A')">A. CPU</button>
+                        <button type="button" class="option-btn" onclick="checkAnswer(this, 'B', 'A')">B. RAM</button>
+                        <button type="button" class="option-btn" onclick="checkAnswer(this, 'C', 'A')">C. SSD</button>
+                        <button type="button" class="option-btn" onclick="checkAnswer(this, 'D', 'A')">D. VGA</button>
+                    </div>
+                </div>
+
+                <!-- Soal 2 -->
+                <div class="PE-item">
+                    <p>2. Kepanjangan dari RAM pada komponen penyimpanan komputer adalah...</p>
+                    <div class="options">
+                        <button type="button" class="option-btn" onclick="checkAnswer(this, 'A', 'C')">A. Read Access Memory</button>
+                        <button type="button" class="option-btn" onclick="checkAnswer(this, 'B', 'C')">B. Random Application Module</button>
+                        <button type="button" class="option-btn" onclick="checkAnswer(this, 'C', 'C')">C. Random Access Memory</button>
+                        <button type="button" class="option-btn" onclick="checkAnswer(this, 'D', 'C')">D. Run Access Memory</button>
+                    </div>
+                </div>
+
+                <!-- Soal 3 -->
+                <div class="PE-item">
+                    <p>3. Penyimpanan SSD saat ini banyak menggantikan HDD. Kepanjangan SSD adalah... </p>
+                    <div class="options">
+                        <button type="button" class="option-btn" onclick="checkAnswer(this, 'A', 'B')">A. Super Speed Disk</button>
+                        <button type="button" class="option-btn" onclick="checkAnswer(this, 'B', 'B')">B. Solid State Drive</button>
+                        <button type="button" class="option-btn" onclick="checkAnswer(this, 'C', 'B')">C. Single State Disk</button>
+                        <button type="button" class="option-btn" onclick="checkAnswer(this, 'D', 'B')">D. System Storage Device</button>
+                    </div>
+                </div>
+
+                <!-- Soal 4 -->
+                <div class="PE-item">
+                    <p>4. Singkatan dari komponen yang bertugas mengolah tampilan gambar/grafis ke layar monitor adalah...</p>
+                    <div class="options">
+                        <button type="button" class="option-btn" onclick="checkAnswer(this, 'A', 'D')">A. HDD</button>
+                        <button type="button" class="option-btn" onclick="checkAnswer(this, 'B', 'D')">B. USB</button>
+                        <button type="button" class="option-btn" onclick="checkAnswer(this, 'C', 'D')">C. HDMI</button>
+                        <button type="button" class="option-btn" onclick="checkAnswer(this, 'D', 'D')">D. VGA</button>
+                    </div>
+                </div>
+
+                <!-- Soal 5 -->
+                <div class="PE-item">
+                    <p>5. Urutan langkah-langkah logis dan sistematis untuk menyelesaikan suatu masalah disebut...</p>
+                    <div class="options">
+                        <button type="button" class="option-btn" onclick="checkAnswer(this, 'A', 'A')">A. Algoritma</button>
+                        <button type="button" class="option-btn" onclick="checkAnswer(this, 'B', 'A')">B. Diagram</button>
+                        <button type="button" class="option-btn" onclick="checkAnswer(this, 'C', 'A')">C. Variabel</button>
+                        <button type="button" class="option-btn" onclick="checkAnswer(this, 'D', 'A')">D. Flowchart</button>
+                    </div>
+                </div>
+
+                <!-- Soal 6 -->
+                <div class="PE-item">
+                    <p>6. Blok perintah Scratch yang berwarna KUNING dan berfungsi menjalankan perintah saat kejadian tertentu 
+					(misal: tombol hijau diklik) adalah kategori...</p>
+                    <div class="options">
+                        <button type="button" class="option-btn" onclick="checkAnswer(this, 'A', 'C')">A. Motion</button>
+                        <button type="button" class="option-btn" onclick="checkAnswer(this, 'B', 'C')">B. Looks</button>
+                        <button type="button" class="option-btn" onclick="checkAnswer(this, 'C', 'C')">C. Events</button>
+                        <button type="button" class="option-btn" onclick="checkAnswer(this, 'D', 'C')">D. Control</button>
+                    </div>
+                </div>
+
+                <!-- Soal 7 -->
+                <div class="PE-item">
+                    <p>7. Pada aplikasi Scratch, karakter atau objek yang dapat diberi instruksi berupa blok kode disebut...</p>
+                    <div class="options">
+                        <button type="button" class="option-btn" onclick="checkAnswer(this, 'A', 'C')">A. Stage</button>
+                        <button type="button" class="option-btn" onclick="checkAnswer(this, 'B', 'C')">B. Background</button>
+                        <button type="button" class="option-btn" onclick="checkAnswer(this, 'C', 'C')">C. Sprite</button>
+                        <button type="button" class="option-btn" onclick="checkAnswer(this, 'D', 'C')">D. Backdrop</button>
+                    </div>
+                </div>
+
+                <!-- Soal 8 -->
+                <div class="PE-item">
+                    <p>8. Kategori blok pada Scratch yang berfungsi untuk menggerakkan atau memutar karakter adalah...</p>
+                    <div class="options">
+                        <button type="button" class="option-btn" onclick="checkAnswer(this, 'A', 'A')">A. Motion</button>
+                        <button type="button" class="option-btn" onclick="checkAnswer(this, 'B', 'A')">B. Looks</button>
+                        <button type="button" class="option-btn" onclick="checkAnswer(this, 'C', 'A')">C. Sound</button>
+                        <button type="button" class="option-btn" onclick="checkAnswer(this, 'D', 'A')">D. Events</button>
+                    </div>
+                </div>
+
+                <!-- Soal 9 -->
+                <div class="PE-item">
+                    <p>9. Blok kode pada Scratch "When Green Flag Clicked" masuk ke dalam kelompok kategori...</p>
+                    <div class="options">
+                        <button type="button" class="option-btn" onclick="checkAnswer(this, 'A', 'C')">A. Control</button>
+                        <button type="button" class="option-btn" onclick="checkAnswer(this, 'B', 'C')">B. Sensing</button>
+                        <button type="button" class="option-btn" onclick="checkAnswer(this, 'C', 'C')">C. Events</button>
+                        <button type="button" class="option-btn" onclick="checkAnswer(this, 'D', 'C')">D. Motion</button>
+                    </div>
+                </div>
+
+                <!-- Soal 10 -->
+                <div class="PE-item">
+                    <p>10. Jika kita ingin membuat perintah pengulangan aksi sebanyak 10 kali di Scratch, kita menggunakan blok kode...</p>
+                    <div class="options">
+                        <button type="button" class="option-btn" onclick="checkAnswer(this, 'A', 'B')">A. Forever</button>
+                        <button type="button" class="option-btn" onclick="checkAnswer(this, 'B', 'B')">B. Repeat 10</button>
+                        <button type="button" class="option-btn" onclick="checkAnswer(this, 'C', 'B')">C. If-Then</button>
+                        <button type="button" class="option-btn" onclick="checkAnswer(this, 'D', 'B')">D. Wait 1 seconds</button>
+                    </div>
+                </div>
+
+            </form>
+
+            <div class="score-container">
+                <h3 id="scoreText">Silakan isi nama dan kelas, lalu jawab soal untuk melihat hasil!</h3>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; PE TIK SMP GRACIA </p>
+    </footer>
+
+    <!-- Script JavaScript untuk Interaktivitas Kuis -->
+    <script>
+        let score = 0;
+        let answeredQuestions = 0;
+
+        function checkAnswer(button, selected, correct) {
+            const nama = document.getElementById('namaSiswa').value.trim();
+            const kelas = document.getElementById('kelasSiswa').value;
+
+            // Validasi identitas siswa sebelum bisa menjawab
+            if (!nama || !kelas) {
+                alert('Harap isi Nama Lengkap dan Kelas terlebih dahulu sebelum menjawab soal!');
+                return;
+            }
+
+            // Ambil semua tombol dalam satu kelompok opsi
+            const parent = button.parentElement;
+            const buttons = parent.querySelectorAll('.option-btn');
+
+            // Cek apakah opsi di soal ini sudah pernah diklik
+            let alreadyAnswered = false;
+            buttons.forEach(btn => {
+                if (btn.classList.contains('correct') || btn.classList.contains('wrong')) {
+                    alreadyAnswered = true;
+                }
+            });
+
+            if (alreadyAnswered) return; // Mencegah klik ganda pada soal yang sama
+
+            answeredQuestions++;
+
+            // Validasi jawaban
+            if (selected === correct) {
+                button.classList.add('correct');
+                score += 10;
+            } else {
+                button.classList.add('wrong');
+                // Beri tanda pada jawaban yang benar
+                buttons.forEach(btn => {
+                    if (btn.innerText.startsWith(correct)) {
+                        btn.classList.add('correct');
+                    }
+                });
+            }
+
+            // Lock field nama dan kelas agar tidak bisa diubah di tengah pengerjaan
+            document.getElementById('namaSiswa').readOnly = true;
+            document.getElementById('kelasSiswa').disabled = true;
+
+            // Update info skor beserta nama & kelas
+            const scoreDisplay = document.getElementById('scoreText');
+            scoreDisplay.innerHTML = `Siswa: <b>${nama}</b> | Kelas: <b>${kelas}</b><br>Skor Anda: <b>${score}</b> / 100 (${answeredQuestions} dari 10 soal dijawab)`;
+        }
+    </script>
+</body>
+</html>
